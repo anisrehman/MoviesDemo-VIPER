@@ -55,16 +55,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "177C52D8-98A4-474F-BC00-EE5D015FB072"
+            uuid = "648B0974-0297-4430-9E8F-4CE557C9F3F1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MoviesDemo/Modules/Movies/MoviesInteractor.swift"
+            filePath = "MoviesDemo/Modules/Movies/MoviesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "loadMovies(_:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "fetchMovies(category:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

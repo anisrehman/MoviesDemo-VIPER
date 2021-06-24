@@ -29,18 +29,18 @@ class MoviesInteractor: MoviesInteractorInputProtocol {
                 // Load movies from db if exist otherwise send error to presenter
                 let movies = weakSelf.moviesFromDB(category: category)
                 if movies.count > 0 {
-                    weakSelf.presenter?.moviesLoaded(movies)
+                    weakSelf.presenter?.showMovies(movies)
                 } else {
-                    weakSelf.presenter?.moviesLoadFailed(error)
+                    weakSelf.presenter?.showError(error)
                 }
             } else {
                 guard let data = data else {
                     let movies = weakSelf.moviesFromDB(category: category)
                     if movies.count > 0 {
-                        weakSelf.presenter?.moviesLoaded(movies)
+                        weakSelf.presenter?.showMovies(movies)
                     } else {
                         let error = APIError.customError(message: "No data from server")
-                        weakSelf.presenter?.moviesLoadFailed(error)
+                        weakSelf.presenter?.showError(error)
 
                     }
                     return
@@ -48,15 +48,15 @@ class MoviesInteractor: MoviesInteractorInputProtocol {
                 do {
                     let response = try JSONDecoder().decode(MoviesResponse.self, from: data) as MoviesResponse
                     MovieAccess.resetMovies(response.results, category: category)
-                    weakSelf.presenter?.moviesLoaded(response.results)
+                    weakSelf.presenter?.showMovies(response.results)
                 } catch  {
                     print(error)
                     let movies = weakSelf.moviesFromDB(category: category)
                     if movies.count > 0 {
-                        weakSelf.presenter?.moviesLoaded(movies)
+                        weakSelf.presenter?.showMovies(movies)
                     } else {
                         let error = APIError.customError(message: "Invalid response from server")
-                        weakSelf.presenter?.moviesLoadFailed(error)
+                        weakSelf.presenter?.showError(error)
                     }
                 }
             }
@@ -70,7 +70,7 @@ class MoviesInteractor: MoviesInteractorInputProtocol {
             let movie = Movie(movieEntity: entity)
             movies.append(movie)
         }
-        presenter?.moviesLoaded(movies)
+        presenter?.showMovies(movies)
     }
     
     func clearSearch(category: Category) {
@@ -80,7 +80,7 @@ class MoviesInteractor: MoviesInteractorInputProtocol {
             let movie = Movie(movieEntity: entity)
             movies.append(movie)
         }
-        presenter?.moviesLoaded(movies)
+        presenter?.showMovies(movies)
     }
     
     private func moviesFromDB(category: Category) -> [Movie] {

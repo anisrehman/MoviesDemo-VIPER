@@ -19,7 +19,7 @@ class MoviesViewController: UIViewController, MoviesViewProtocol {
 	override func viewDidLoad() {
         super.viewDidLoad()
         MoviesRouter.createModule(viewController: self)
-        self.loadMovies(category: self.selectedCategory)
+        self.fetchMovies(category: self.selectedCategory)
     }
 
     func moviesLoaded(_ movies: [Movie]) {
@@ -39,16 +39,13 @@ class MoviesViewController: UIViewController, MoviesViewProtocol {
 // MARK: - Actions
 extension MoviesViewController {
     @IBAction func categoryAction(_ sender: UISegmentedControl) {
-        self.loadMovies(category: self.selectedCategory)
+        self.fetchMovies(category: self.selectedCategory)
     }
 }
 // MARK: - Private Methods
 extension MoviesViewController {
-    private func loadMovies(category: Category) {
-        self.searchBar.text = ""
-        self.searchBar.resignFirstResponder()
-        self.movies = []
-        self.tableView.reloadData()
+    private func fetchMovies(category: Category) {
+        self.resetView()
         self.showProgress()
         presenter?.loadMovies(category)
     }
@@ -61,6 +58,13 @@ extension MoviesViewController {
     private func hideProgress() {
         self.view.isUserInteractionEnabled = true
         self.progressView.isHidden = true
+    }
+    
+    private func resetView() {
+        self.searchBar.text = ""
+        self.searchBar.resignFirstResponder()
+        self.movies = []
+        self.tableView.reloadData();
     }
     
     private var selectedCategory: Category {

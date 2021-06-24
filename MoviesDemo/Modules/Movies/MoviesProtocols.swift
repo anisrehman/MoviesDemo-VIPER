@@ -10,11 +10,11 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol MoviesWireframeProtocol: class {
+protocol MoviesWireframeProtocol: AnyObject {
     func routeToMovieDetails(movie: Movie, title: String)
 }
 //MARK: Presenter -
-protocol MoviesPresenterProtocol: class {
+protocol MoviesPresenterProtocol: AnyObject {
 
     var interactor: MoviesInteractorInputProtocol? { get set }
     
@@ -25,14 +25,14 @@ protocol MoviesPresenterProtocol: class {
 }
 
 //MARK: Interactor -
-protocol MoviesInteractorOutputProtocol: class {
+protocol MoviesInteractorOutputProtocol: AnyObject {
 
     /* Interactor -> Presenter */
-    func moviesLoaded(_ movies: [Movie])
-    func moviesLoadFailed(_ error: Error)
+    func showMovies(_ movies: [Movie])
+    func showError(_ error: Error)
 }
 
-protocol MoviesInteractorInputProtocol: class {
+protocol MoviesInteractorInputProtocol: AnyObject {
 
     var presenter: MoviesInteractorOutputProtocol?  { get set }
 
@@ -43,7 +43,7 @@ protocol MoviesInteractorInputProtocol: class {
 }
 
 //MARK: View -
-protocol MoviesViewProtocol: class {
+protocol MoviesViewProtocol: AnyObject {
 
     var presenter: MoviesPresenterProtocol?  { get set }
 

@@ -43,13 +43,13 @@ class MoviesPresenter: MoviesPresenterProtocol {
 
 //Interactor responses are handled here
 extension MoviesPresenter: MoviesInteractorOutputProtocol {
-    func moviesLoaded(_ movies: [Movie]) {
+    func showMovies(_ movies: [Movie]) {
         DispatchQueue.main.async {[weak self] in
             self?.view?.moviesLoaded(movies)
         }
     }
     
-    func moviesLoadFailed(_ error: Error) {
+    func showError(_ error: Error) {
         DispatchQueue.main.async {[weak self] in
             self?.view?.moviesLoadFailed(error)
         }
