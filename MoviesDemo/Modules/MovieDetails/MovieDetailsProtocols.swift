@@ -10,11 +10,11 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol MovieDetailsWireframeProtocol: class {
+protocol MovieDetailsWireframeProtocol: AnyObject {
 
 }
 //MARK: Presenter -
-protocol MovieDetailsPresenterProtocol: class {
+protocol MovieDetailsPresenterProtocol: AnyObject {
 
     var interactor: MovieDetailsInteractorInputProtocol? { get set }
     var movie: Movie { get set }
@@ -23,12 +23,12 @@ protocol MovieDetailsPresenterProtocol: class {
 }
 
 //MARK: Interactor -
-protocol MovieDetailsInteractorOutputProtocol: class {
+protocol MovieDetailsInteractorOutputProtocol: AnyObject {
 
     /* Interactor -> Presenter */
 }
 
-protocol MovieDetailsInteractorInputProtocol: class {
+protocol MovieDetailsInteractorInputProtocol: AnyObject {
 
     var presenter: MovieDetailsInteractorOutputProtocol?  { get set }
 
@@ -36,7 +36,7 @@ protocol MovieDetailsInteractorInputProtocol: class {
 }
 
 //MARK: View -
-protocol MovieDetailsViewProtocol: class {
+protocol MovieDetailsViewProtocol: AnyObject {
 
     var presenter: MovieDetailsPresenterProtocol?  { get set }
 
