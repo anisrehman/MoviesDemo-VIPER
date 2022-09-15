@@ -48,6 +48,6 @@ protocol MoviesViewProtocol: AnyObject {
     var presenter: MoviesPresenterProtocol?  { get set }
 
     /* Presenter -> ViewController */
-    func moviesLoaded(_ movies: [Movie])
-    func moviesLoadFailed(_ error: Error)
+    func displayMovies(_ movies: [Movie])
+    func showError(_ error: Error)
 }

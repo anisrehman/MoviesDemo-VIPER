@@ -9,7 +9,7 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController, MoviesViewProtocol {
+class MoviesViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -20,19 +20,6 @@ class MoviesViewController: UIViewController, MoviesViewProtocol {
         super.viewDidLoad()
         MoviesRouter.createModule(viewController: self)
         self.fetchMovies(category: self.selectedCategory)
-    }
-
-    func moviesLoaded(_ movies: [Movie]) {
-        self.hideProgress()
-        self.movies = movies
-        self.tableView.reloadData()
-    }
-    
-    func moviesLoadFailed(_ error: Error) {
-        self.hideProgress()
-        let alertViewController = UIAlertController(title: "", message: error.localizedDescription, preferredStyle: .alert)
-        alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertViewController, animated: true, completion: nil)
     }
 }
 
@@ -104,5 +91,21 @@ extension MoviesViewController: UISearchBarDelegate {
         } else {
             presenter?.searchMovies(text: searchText, category: self.selectedCategory)
         }
+    }
+}
+
+// MARK: - MoviesViewProtocol
+extension MoviesViewController: MoviesViewProtocol {
+    func displayMovies(_ movies: [Movie]) {
+        self.hideProgress()
+        self.movies = movies
+        self.tableView.reloadData()
+    }
+
+    func showError(_ error: Error) {
+        self.hideProgress()
+        let alertViewController = UIAlertController(title: "", message: error.localizedDescription, preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertViewController, animated: true, completion: nil)
     }
 }
