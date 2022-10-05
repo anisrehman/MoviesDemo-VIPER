@@ -12,7 +12,7 @@ import UIKit
 class MoviesInteractor: MoviesInteractorInputProtocol {
     weak var presenter: MoviesInteractorOutputProtocol?
     
-    func loadMovies(_ category: Category) {
+    func fetchMovies(_ category: Category) {
         // Decide which API to be called based on category
         var apiRouter = APIRouter.popular(page: 1)
         switch category {

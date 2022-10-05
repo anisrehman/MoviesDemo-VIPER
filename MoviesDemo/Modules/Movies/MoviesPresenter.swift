@@ -10,7 +10,6 @@
 import UIKit
 
 class MoviesPresenter: MoviesPresenterProtocol {
-    
     weak private var view: MoviesViewProtocol?
     var interactor: MoviesInteractorInputProtocol?
     private let router: MoviesWireframeProtocol
@@ -21,8 +20,10 @@ class MoviesPresenter: MoviesPresenterProtocol {
     }
     
     //load movies under a category
-    func loadMovies(_ category: Category) {
-        interactor?.loadMovies(category)
+    func fetchMovies(_ category: Category) {
+        view?.clearMoviesList()
+        view?.showProgress()
+        interactor?.fetchMovies(category)
     }
     
     //Search movies for a string under a category

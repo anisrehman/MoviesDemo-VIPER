@@ -18,7 +18,7 @@ protocol MoviesPresenterProtocol: AnyObject {
 
     var interactor: MoviesInteractorInputProtocol? { get set }
     
-    func loadMovies(_ category: Category)
+    func fetchMovies(_ category: Category)
     func searchMovies(text: String, category: Category)
     func clearSearch(category: Category)
     func showMovieDetails(movie: Movie)
@@ -37,7 +37,7 @@ protocol MoviesInteractorInputProtocol: AnyObject {
     var presenter: MoviesInteractorOutputProtocol?  { get set }
 
     /* Presenter -> Interactor */
-    func loadMovies(_ category: Category)
+    func fetchMovies(_ category: Category)
     func searchMovies(text: String, category: Category)
     func clearSearch(category: Category)
 }
@@ -48,6 +48,10 @@ protocol MoviesViewProtocol: AnyObject {
     var presenter: MoviesPresenterProtocol?  { get set }
 
     /* Presenter -> ViewController */
+    func showProgress();
+    func hideProgress();
+    func clearMoviesList();
+
     func displayMovies(_ movies: [Movie])
     func showError(_ error: Error)
 }

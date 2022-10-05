@@ -32,28 +32,9 @@ extension MoviesViewController {
 // MARK: - Private Methods
 extension MoviesViewController {
     private func fetchMovies(category: Category) {
-        self.resetView()
-        self.showProgress()
-        presenter?.loadMovies(category)
+        presenter?.fetchMovies(category)
     }
-    
-    private func showProgress() {
-        self.view.isUserInteractionEnabled = false
-        self.progressView.isHidden = false
-    }
-    
-    private func hideProgress() {
-        self.view.isUserInteractionEnabled = true
-        self.progressView.isHidden = true
-    }
-    
-    private func resetView() {
-        self.searchBar.text = ""
-        self.searchBar.resignFirstResponder()
-        self.movies = []
-        self.tableView.reloadData();
-    }
-    
+
     private var selectedCategory: Category {
         get {
             return Category(rawValue: segmentedControl.selectedSegmentIndex) ?? .popular
@@ -96,6 +77,23 @@ extension MoviesViewController: UISearchBarDelegate {
 
 // MARK: - MoviesViewProtocol
 extension MoviesViewController: MoviesViewProtocol {
+    func showProgress() {
+        self.view.isUserInteractionEnabled = false
+        self.progressView.isHidden = false
+    }
+
+    func hideProgress() {
+        self.view.isUserInteractionEnabled = true
+        self.progressView.isHidden = true
+    }
+
+    func clearMoviesList() {
+        self.searchBar.text = ""
+        self.searchBar.resignFirstResponder()
+        self.movies = []
+        self.tableView.reloadData();
+    }
+
     func displayMovies(_ movies: [Movie]) {
         self.hideProgress()
         self.movies = movies
