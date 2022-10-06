@@ -24,12 +24,13 @@ extension APIError: LocalizedError {
 // This class is used to handle API call to server.
 class APIClient {
     // Sends API call. If there is error from server, it parses it.
-    static func sendRequest(router: APIRouter,  completion: @escaping (Data?, Error?) -> Void) {
+    static func sendRequest<T: Decodable>(router: APIRouter, type: T.Type,  completion: @escaping (T?, Error?) -> Void) {
         // Get urlRequest object from APIRouter
         guard let urlRequest = router.asURLRequest() else {
             return
         }
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, urlResponse, error) in
+
             if let error = error {
                 //Send error in completion block
                 completion(nil, error)
@@ -41,9 +42,14 @@ class APIClient {
                 }
                 switch response.statusCode {
                 case 200:  //OK response from server
+                    do {
+                        let result = try JSONDecoder().decode(T.self, from: data!) as T
                         //Send data in completion block
-                        completion(data, error)
-                    break
+                        completion(result, error)
+                        break
+                    } catch {
+
+                        }
                 default: // Error in response
                     if let data = data {
                         // Parse the data custom error message from server
@@ -57,7 +63,6 @@ class APIClient {
                     } else {
                         completion(nil, APIError.customError(message: "No data from server."))
                     }
-                    break
                 }
             }
         }

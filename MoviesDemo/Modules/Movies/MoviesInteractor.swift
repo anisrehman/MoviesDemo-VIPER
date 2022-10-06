@@ -23,7 +23,7 @@ class MoviesInteractor: MoviesInteractorInputProtocol {
         case .upcoming:
             apiRouter = .upcoming(page: 1)
         }
-        APIClient.sendRequest(router: apiRouter){ [weak self](data, error) in
+        APIClient.sendRequest(router: apiRouter, type: MoviesResponse.self){ [weak self](response, error) in
             guard let weakSelf = self else { return }
             if let error = error {
                 // Load movies from db if exist otherwise send error to presenter
@@ -34,31 +34,19 @@ class MoviesInteractor: MoviesInteractorInputProtocol {
                     weakSelf.presenter?.showError(error)
                 }
             } else {
-                guard let data = data else {
+                guard let response = response else {
                     let movies = weakSelf.moviesFromDB(category: category)
                     if movies.count > 0 {
                         weakSelf.presenter?.showMovies(movies)
                     } else {
                         let error = APIError.customError(message: "No data from server")
                         weakSelf.presenter?.showError(error)
-
                     }
                     return
                 }
-                do {
-                    let response = try JSONDecoder().decode(MoviesResponse.self, from: data) as MoviesResponse
-                    MovieAccess.resetMovies(response.results, category: category)
-                    weakSelf.presenter?.showMovies(response.results)
-                } catch  {
-                    print(error)
-                    let movies = weakSelf.moviesFromDB(category: category)
-                    if movies.count > 0 {
-                        weakSelf.presenter?.showMovies(movies)
-                    } else {
-                        let error = APIError.customError(message: "Invalid response from server")
-                        weakSelf.presenter?.showError(error)
-                    }
-                }
+                
+                MovieAccess.resetMovies(response.results, category: category)
+                weakSelf.presenter?.showMovies(response.results)
             }
         }
     }
