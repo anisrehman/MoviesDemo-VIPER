@@ -35,7 +35,7 @@ protocol MoviesInteractorOutputProtocol: AnyObject {
 protocol MoviesInteractorInputProtocol: AnyObject {
 
     var presenter: MoviesInteractorOutputProtocol?  { get set }
-
+    var moviesService: MoviesService { get set }
     /* Presenter -> Interactor */
     func fetchMovies(_ category: Category)
     func searchMovies(text: String, category: Category)

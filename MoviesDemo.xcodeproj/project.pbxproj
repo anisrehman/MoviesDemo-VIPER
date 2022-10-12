@@ -40,6 +40,8 @@
 		918C90B623F5A4B800EADB2E /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C90B023F5A4B800EADB2E /* MovieDetailsViewController.swift */; };
 		918C90B723F5A4B800EADB2E /* MovieDetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C90B123F5A4B800EADB2E /* MovieDetailsProtocols.swift */; };
 		918C90B823F5A4B800EADB2E /* MovieDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C90B223F5A4B800EADB2E /* MovieDetailsInteractor.swift */; };
+		91A7E4B728EF17720041009E /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A7E4B628EF17720041009E /* MoviesService.swift */; };
+		91C5A70528F2D893005D277F /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C5A70428F2D893005D277F /* DependencyContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		918C90B023F5A4B800EADB2E /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		918C90B123F5A4B800EADB2E /* MovieDetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsProtocols.swift; sourceTree = "<group>"; };
 		918C90B223F5A4B800EADB2E /* MovieDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsInteractor.swift; sourceTree = "<group>"; };
+		91A7E4B628EF17720041009E /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
+		91C5A70428F2D893005D277F /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,8 +204,9 @@
 		918C908B23F31DD900EADB2E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				91C5A70328F2CFA9005D277F /* Utils */,
 				86D020E923F4315B00986B09 /* Models */,
-				918C90A623F526B700EADB2E /* DataAccessLayer */,
+				918C90A623F526B700EADB2E /* Services */,
 				86D020E223F428ED00986B09 /* APIResponse */,
 				918C908C23F31DF800EADB2E /* Category.swift */,
 				918C908E23F31EF400EADB2E /* Storyboard.swift */,
@@ -237,12 +242,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		918C90A623F526B700EADB2E /* DataAccessLayer */ = {
+		918C90A623F526B700EADB2E /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				918C90A723F527D100EADB2E /* MovieAccess.swift */,
+				91A7E4B628EF17720041009E /* MoviesService.swift */,
 			);
-			path = DataAccessLayer;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		918C90AD23F5A48D00EADB2E /* MovieDetails */ = {
@@ -255,6 +261,14 @@
 				918C90B223F5A4B800EADB2E /* MovieDetailsInteractor.swift */,
 			);
 			path = MovieDetails;
+			sourceTree = "<group>";
+		};
+		91C5A70328F2CFA9005D277F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				91C5A70428F2D893005D277F /* DependencyContainer.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				918C90B623F5A4B800EADB2E /* MovieDetailsViewController.swift in Sources */,
+				91C5A70528F2D893005D277F /* DependencyContainer.swift in Sources */,
 				86D020D923F3C40700986B09 /* Constants.swift in Sources */,
 				86C743A823F2E413007CA682 /* AppDelegate.swift in Sources */,
 				918C909E23F3246500EADB2E /* StoryboardID.swift in Sources */,
@@ -366,6 +381,7 @@
 				86C743AA23F2E413007CA682 /* SceneDelegate.swift in Sources */,
 				918C90B823F5A4B800EADB2E /* MovieDetailsInteractor.swift in Sources */,
 				86D020DE23F3E23000986B09 /* APIRouter.swift in Sources */,
+				91A7E4B728EF17720041009E /* MoviesService.swift in Sources */,
 				918C90AC23F58C9200EADB2E /* DatabaseManager.swift in Sources */,
 				86C743B223F2E413007CA682 /* MoviesDemo.xcdatamodeld in Sources */,
 				918C908F23F31EF400EADB2E /* Storyboard.swift in Sources */,

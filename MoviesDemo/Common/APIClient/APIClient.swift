@@ -46,10 +46,9 @@ class APIClient {
                         let result = try JSONDecoder().decode(T.self, from: data!) as T
                         //Send data in completion block
                         completion(result, error)
-                        break
                     } catch {
-
-                        }
+                        
+                    }
                 default: // Error in response
                     if let data = data {
                         // Parse the data custom error message from server
