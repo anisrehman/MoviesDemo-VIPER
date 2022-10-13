@@ -26,7 +26,11 @@ class MoviesService: MoviesFetching {
         }
         APIClient.sendRequest(router: apiRouter, type: MoviesResponse.self){ (response, error) in
             if let response = response {
-                completion(response.results, nil)
+                let movies = response.results.map { movieResponse in
+                    Movie(id: movieResponse.id, popularity: movieResponse.popularity, voteCount: movieResponse.voteCount, video: movieResponse.video, posterPath: movieResponse.posterPath, adult: movieResponse.adult, backdropPath: movieResponse.backdropPath, originalLanguage: movieResponse.originalLanguage, originalTitle: movieResponse.originalTitle, title: movieResponse.title, voteAverage: movieResponse.voteAverage, overview: movieResponse.overview, releaseDate: movieResponse.releaseDate)
+                }
+
+                completion(movies, nil)
             } else if let error = error {
                 completion(nil, error)
             }

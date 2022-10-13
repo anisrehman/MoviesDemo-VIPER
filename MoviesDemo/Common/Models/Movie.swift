@@ -10,7 +10,7 @@ import Foundation
 
 
 // This model is using for parsing the movie object in API response.
-struct Movie: Codable {
+struct Movie {
     let id: Int64
     let popularity: Double
     let voteCount: Int32
@@ -24,53 +24,4 @@ struct Movie: Codable {
     let voteAverage: Double
     let overview: String
     let releaseDate: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case popularity
-        case voteCount = "vote_count"
-        case video
-        case posterPath = "poster_path"
-        case adult
-        case backdropPath = "backdrop_path"
-        case originalLanguage = "original_language"
-        case originalTitle = "original_title"
-        case title
-        case voteAverage = "vote_average"
-        case overview
-        case releaseDate = "release_date"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decode(Int64.self, forKey: .id)
-        popularity = try values.decode(Double.self, forKey: .popularity)
-        voteCount = try values.decode(Int32.self, forKey: .voteCount)
-        video = try values.decode(Bool.self, forKey: .video)
-        posterPath = try values.decodeIfPresent(String.self, forKey: .posterPath)
-        adult = try values.decode(Bool.self, forKey: .adult)
-        backdropPath = try values.decodeIfPresent(String.self, forKey: .backdropPath)
-        originalLanguage = try values.decode(String.self, forKey: .originalLanguage)
-        originalTitle = try values.decode(String.self, forKey: .originalTitle)
-        title = try values.decode(String.self, forKey: .title)
-        voteAverage = try values.decode(Double.self, forKey: .voteAverage)
-        overview = try values.decode(String.self, forKey: .overview)
-        releaseDate = try values.decode(String.self, forKey: .releaseDate)
-    }
-    
-    init(movieEntity: MovieEntity) {
-        id = movieEntity.id
-        popularity = movieEntity.popularity
-        voteCount = movieEntity.voteCount
-        video = movieEntity.video
-        posterPath = movieEntity.posterPath ?? ""
-        adult = movieEntity.adult
-        backdropPath = movieEntity.backdropPath ?? ""
-        originalLanguage = movieEntity.originalLanguage ?? ""
-        originalTitle = movieEntity.originalTitle ?? ""
-        title = movieEntity.title ?? ""
-        voteAverage = movieEntity.voteAverage
-        overview = movieEntity.overview ?? ""
-        releaseDate = movieEntity.releaseDate ?? ""
-    }
 }

@@ -34,10 +34,8 @@ class MoviesInteractor: MoviesInteractorInputProtocol {
     func searchMovies(text: String, category: Category) {
         let movieRepository = DependencyContainer.shared.get(MovieStoring.self)
         let movieEntities = movieRepository?.searchMovies(text: text, category: category) ?? []
-        var movies: [Movie] = []
-        movieEntities.forEach { (entity) in
-            let movie = Movie(movieEntity: entity)
-            movies.append(movie)
+        let movies = movieEntities.map { entity in
+            Movie(id: entity.id, popularity: entity.popularity, voteCount: entity.voteCount, video: entity.video, posterPath: entity.posterPath, adult: entity.adult, backdropPath: entity.backdropPath, originalLanguage: entity.originalLanguage ?? "", originalTitle: entity.originalTitle ?? "", title: entity.title ?? "", voteAverage: entity.voteAverage, overview: entity.overview ?? "", releaseDate: entity.releaseDate ?? "")
         }
         presenter?.showMovies(movies)
     }
@@ -50,10 +48,8 @@ class MoviesInteractor: MoviesInteractorInputProtocol {
     private func moviesFromDB(category: Category) -> [Movie] {
         let movieRepository = DependencyContainer.shared.get(MovieStoring.self)
         let movieEntities = movieRepository?.allMovies(category: category) ?? []
-        var movies: [Movie] = []
-        movieEntities.forEach { (entity) in
-            let movie = Movie(movieEntity: entity)
-            movies.append(movie)
+        let movies = movieEntities.map { entity in
+            Movie(id: entity.id, popularity: entity.popularity, voteCount: entity.voteCount, video: entity.video, posterPath: entity.posterPath, adult: entity.adult, backdropPath: entity.backdropPath, originalLanguage: entity.originalLanguage ?? "", originalTitle: entity.originalTitle ?? "", title: entity.title ?? "", voteAverage: entity.voteAverage, overview: entity.overview ?? "", releaseDate: entity.releaseDate ?? "")
         }
         return movies
     }
