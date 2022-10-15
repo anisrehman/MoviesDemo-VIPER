@@ -9,7 +9,7 @@
 
 import UIKit
 
-class MovieDetailsInteractor: MovieDetailsInteractorInputProtocol {
+class MovieDetailsInteractor: MovieDetailsInteractable {
 
     weak var presenter: MovieDetailsInteractorOutputProtocol?
 }

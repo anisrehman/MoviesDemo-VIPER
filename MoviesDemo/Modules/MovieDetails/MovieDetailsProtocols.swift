@@ -10,13 +10,13 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol MovieDetailsWireframeProtocol: AnyObject {
+protocol MovieDetailsRoutable: AnyObject {
 
 }
 //MARK: Presenter -
 protocol MovieDetailsPresenterProtocol: AnyObject {
 
-    var interactor: MovieDetailsInteractorInputProtocol? { get set }
+    var interactor: MovieDetailsInteractable? { get set }
     var movie: Movie { get set }
     
     func showMovieDetails()
@@ -28,7 +28,7 @@ protocol MovieDetailsInteractorOutputProtocol: AnyObject {
     /* Interactor -> Presenter */
 }
 
-protocol MovieDetailsInteractorInputProtocol: AnyObject {
+protocol MovieDetailsInteractable: AnyObject {
 
     var presenter: MovieDetailsInteractorOutputProtocol?  { get set }
 
@@ -36,7 +36,7 @@ protocol MovieDetailsInteractorInputProtocol: AnyObject {
 }
 
 //MARK: View -
-protocol MovieDetailsViewProtocol: AnyObject {
+protocol MovieDetailsViewable: AnyObject {
 
     var presenter: MovieDetailsPresenterProtocol?  { get set }
 

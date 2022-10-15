@@ -24,7 +24,7 @@ class MovieDetailsViewController: UIViewController  {
     }
 }
 
-extension MovieDetailsViewController: MovieDetailsViewProtocol {
+extension MovieDetailsViewController: MovieDetailsViewable {
     func movieToShowDetails(movie: Movie) {
         self.titleLabel.text = "\(movie.title) (\(movie.releaseDate)) "
         self.overviewLabel.text = movie.overview

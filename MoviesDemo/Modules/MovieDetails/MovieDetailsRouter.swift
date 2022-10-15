@@ -9,7 +9,7 @@
 
 import UIKit
 
-class MovieDetailsRouter: MovieDetailsWireframeProtocol {
+class MovieDetailsRouter: MovieDetailsRoutable {
 
     weak var viewController: UIViewController?
 

@@ -11,12 +11,12 @@ import UIKit
 
 class MovieDetailsPresenter: MovieDetailsPresenterProtocol, MovieDetailsInteractorOutputProtocol {
 
-    weak private var view: MovieDetailsViewProtocol?
-    var interactor: MovieDetailsInteractorInputProtocol?
-    private let router: MovieDetailsWireframeProtocol
+    weak private var view: MovieDetailsViewable?
+    var interactor: MovieDetailsInteractable?
+    private let router: MovieDetailsRoutable
     var movie: Movie
 
-    init(interface: MovieDetailsViewProtocol, interactor: MovieDetailsInteractorInputProtocol?, router: MovieDetailsWireframeProtocol, movie: Movie) {
+    init(interface: MovieDetailsViewable, interactor: MovieDetailsInteractable?, router: MovieDetailsRoutable, movie: Movie) {
         self.view = interface
         self.interactor = interactor
         self.router = router
