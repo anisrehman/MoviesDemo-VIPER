@@ -9,8 +9,8 @@
 
 import UIKit
 
-class MoviesInteractor: MoviesInteractorInputProtocol {
-    weak var presenter: MoviesInteractorOutputProtocol?
+class MoviesInteractor: MoviesInteractable {
+    weak var presenter: MoviesOutputInteractable?
     var moviesService = MoviesService()
 
     init() {

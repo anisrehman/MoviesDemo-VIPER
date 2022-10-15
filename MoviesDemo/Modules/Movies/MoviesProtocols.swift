@@ -10,13 +10,13 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol MoviesWireframeProtocol: AnyObject {
+protocol MoviesRoutable: AnyObject {
     func routeToMovieDetails(movie: Movie, title: String)
 }
 //MARK: Presenter -
-protocol MoviesPresenterProtocol: AnyObject {
+protocol MoviesPresentable: AnyObject {
 
-    var interactor: MoviesInteractorInputProtocol? { get set }
+    var interactor: MoviesInteractable? { get set }
     
     func fetchMovies(_ category: Category)
     func searchMovies(text: String, category: Category)
@@ -25,16 +25,16 @@ protocol MoviesPresenterProtocol: AnyObject {
 }
 
 //MARK: Interactor -
-protocol MoviesInteractorOutputProtocol: AnyObject {
+protocol MoviesOutputInteractable: AnyObject {
 
     /* Interactor -> Presenter */
     func showMovies(_ movies: [Movie])
     func showError(_ error: Error)
 }
 
-protocol MoviesInteractorInputProtocol: AnyObject {
+protocol MoviesInteractable: AnyObject {
 
-    var presenter: MoviesInteractorOutputProtocol?  { get set }
+    var presenter: MoviesOutputInteractable?  { get set }
     var moviesService: MoviesService { get set }
     /* Presenter -> Interactor */
     func fetchMovies(_ category: Category)
@@ -43,9 +43,9 @@ protocol MoviesInteractorInputProtocol: AnyObject {
 }
 
 //MARK: View -
-protocol MoviesViewProtocol: AnyObject {
+protocol MoviesViewable: AnyObject {
 
-    var presenter: MoviesPresenterProtocol?  { get set }
+    var presenter: MoviesPresentable?  { get set }
 
     /* Presenter -> ViewController */
     func showProgress();

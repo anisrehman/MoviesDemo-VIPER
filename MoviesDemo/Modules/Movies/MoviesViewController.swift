@@ -15,7 +15,7 @@ class MoviesViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var progressView: UIView!
     var movies: [Movie]? = nil
-	var presenter: MoviesPresenterProtocol?
+	var presenter: MoviesPresentable?
 	override func viewDidLoad() {
         super.viewDidLoad()
         MoviesRouter.createModule(viewController: self)
@@ -76,7 +76,7 @@ extension MoviesViewController: UISearchBarDelegate {
 }
 
 // MARK: - MoviesViewProtocol
-extension MoviesViewController: MoviesViewProtocol {
+extension MoviesViewController: MoviesViewable {
     func showProgress() {
         self.view.isUserInteractionEnabled = false
         self.progressView.isHidden = false

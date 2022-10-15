@@ -9,11 +9,11 @@
 
 import UIKit
 
-class MoviesPresenter: MoviesPresenterProtocol {
-    weak private var view: MoviesViewProtocol?
-    var interactor: MoviesInteractorInputProtocol?
-    private let router: MoviesWireframeProtocol
-    init(interface: MoviesViewProtocol, interactor: MoviesInteractorInputProtocol?, router: MoviesWireframeProtocol) {
+class MoviesPresenter: MoviesPresentable {
+    weak private var view: MoviesViewable?
+    var interactor: MoviesInteractable?
+    private let router: MoviesRoutable
+    init(interface: MoviesViewable, interactor: MoviesInteractable?, router: MoviesRoutable) {
         self.view = interface
         self.interactor = interactor
         self.router = router
@@ -43,7 +43,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
 }
 
 //Interactor responses are handled here
-extension MoviesPresenter: MoviesInteractorOutputProtocol {
+extension MoviesPresenter: MoviesOutputInteractable {
     func showMovies(_ movies: [Movie]) {
         DispatchQueue.main.async {[weak self] in
             self?.view?.displayMovies(movies)
