@@ -19,9 +19,22 @@ class MoviesDemoTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testFetchMovies() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        var result: [Movie]?
+        let expectation = self.expectation(description: "Movies Fetched")
+        
+        let moviesService = MoviesService()
+        moviesService.fetchMovies(.topRated) { movies, error in
+            result = movies
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertNotNil(result)
+        if let result {
+            XCTAssertGreaterThan(result.count, 0)
+        }
     }
 
     func testPerformanceExample() {

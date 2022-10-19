@@ -9,7 +9,7 @@
 
 import UIKit
 
-class MovieDetailsPresenter: MovieDetailsPresenterProtocol, MovieDetailsInteractorOutputProtocol {
+class MovieDetailsPresenter: MovieDetailsPresentable, MovieDetailsInteractorOutputProtocol {
 
     weak private var view: MovieDetailsViewable?
     var interactor: MovieDetailsInteractable?
@@ -26,7 +26,7 @@ class MovieDetailsPresenter: MovieDetailsPresenterProtocol, MovieDetailsInteract
     func showMovieDetails() {
         DispatchQueue.main.async { [weak self] in
             guard let weakSelf = self else { return }
-            weakSelf.view?.movieToShowDetails(movie: weakSelf.movie)
+            weakSelf.view?.showMovieDetails(movie: weakSelf.movie)
         }
     }
 }

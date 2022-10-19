@@ -14,7 +14,7 @@ protocol MovieDetailsRoutable: AnyObject {
 
 }
 //MARK: Presenter -
-protocol MovieDetailsPresenterProtocol: AnyObject {
+protocol MovieDetailsPresentable: AnyObject {
 
     var interactor: MovieDetailsInteractable? { get set }
     var movie: Movie { get set }
@@ -38,9 +38,9 @@ protocol MovieDetailsInteractable: AnyObject {
 //MARK: View -
 protocol MovieDetailsViewable: AnyObject {
 
-    var presenter: MovieDetailsPresenterProtocol?  { get set }
+    var presenter: MovieDetailsPresentable?  { get set }
 
     /* Presenter -> ViewController */
-    func movieToShowDetails(movie: Movie)
+    func showMovieDetails(movie: Movie)
 
 }

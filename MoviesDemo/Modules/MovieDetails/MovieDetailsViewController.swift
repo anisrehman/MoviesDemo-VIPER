@@ -16,7 +16,7 @@ class MovieDetailsViewController: UIViewController  {
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
-	var presenter: MovieDetailsPresenterProtocol?
+	var presenter: MovieDetailsPresentable?
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class MovieDetailsViewController: UIViewController  {
 }
 
 extension MovieDetailsViewController: MovieDetailsViewable {
-    func movieToShowDetails(movie: Movie) {
+    func showMovieDetails(movie: Movie) {
         self.titleLabel.text = "\(movie.title) (\(movie.releaseDate)) "
         self.overviewLabel.text = movie.overview
         ratingLabel.text = "Rating: \(movie.voteAverage)"
