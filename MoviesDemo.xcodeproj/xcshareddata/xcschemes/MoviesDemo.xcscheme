@@ -43,6 +43,17 @@
                referenceType = "1">
             </LocationScenarioReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "91744DD929003AF7002EEE94"
+               BuildableName = "MoviesDemoTests2.xctest"
+               BlueprintName = "MoviesDemoTests2"
+               ReferencedContainer = "container:MoviesDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
