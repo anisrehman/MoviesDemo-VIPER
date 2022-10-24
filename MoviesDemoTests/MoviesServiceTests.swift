@@ -1,5 +1,5 @@
 //
-//  MoviesDemoTests2.swift
+//  MoviesServiceTests.swift
 //  MoviesDemoTests2
 //
 //  Created by Anis Rehman on 19/10/2022.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-final class MoviesDemoTests2: XCTestCase {
+final class MoviesServiceTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -18,7 +18,7 @@ final class MoviesDemoTests2: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testFetchMovies() throws {
+    func testFetchTopRatedMovies() throws {
         var result: [Movie]?
         let expectation = self.expectation(description: "Movies Fetched")
 
@@ -34,11 +34,39 @@ final class MoviesDemoTests2: XCTestCase {
         }
     }
 
+    func testFetchPopularMovies() throws {
+        var result: [Movie]?
+        let expectation = self.expectation(description: "Movies Fetched")
+
+        let moviesService = MoviesService()
+        moviesService.fetchMovies(.popular) { movies, error in
+            result = movies
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertNotNil(result)
+        if let result {
+            XCTAssertGreaterThan(result.count, 0)
+        }
+    }
+
+    func testFetchUpcomingMovies() throws {
+        var result: [Movie]?
+        let expectation = self.expectation(description: "Movies Fetched")
+
+        let moviesService = MoviesService()
+        moviesService.fetchMovies(.upcoming) { movies, error in
+            result = movies
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertNotNil(result)
+        if let result {
+            XCTAssertGreaterThan(result.count, 0)
+        }
+    }
+
     func testSearchMovies() throws {
-//        var result: [Movie]?
-//        let expectation = self.expectation(description: "Movies Fetched")
-//
-//        let moviesService = MovieRepository()
     }
 
     func testPerformanceExample() throws {
