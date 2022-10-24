@@ -111,6 +111,36 @@
                   endingLineNumber = "53"
                   offsetFromSymbolStart = "2468">
                </Location>
+               <Location
+                  uuid = "688C9F0B-0BD4-4BA3-B4EE-FD5D73D1D367 - 477363b78eeea0c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static MoviesDemoTests.APIClient.sendRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(router: MoviesDemoTests.APIRouter, type: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MoviesDemoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anisrehman/Projects/MoviesDemo/MoviesDemo/Common/APIClient/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "2100">
+               </Location>
+               <Location
+                  uuid = "688C9F0B-0BD4-4BA3-B4EE-FD5D73D1D367 - 477363b78eeea0c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static MoviesDemoTests.APIClient.sendRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(router: MoviesDemoTests.APIRouter, type: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MoviesDemoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anisrehman/Projects/MoviesDemo/MoviesDemo/Common/APIClient/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "2468">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -151,6 +181,21 @@
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static MoviesDemoTests2.APIClient.sendRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(router: MoviesDemoTests2.APIRouter, type: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "MoviesDemoTests2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anisrehman/Projects/MoviesDemo/MoviesDemo/Common/APIClient/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "2484">
+               </Location>
+               <Location
+                  uuid = "513F128A-2214-46E9-A664-29FC746BF7EF - 477363b78eeea0ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static MoviesDemoTests.APIClient.sendRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(router: MoviesDemoTests.APIRouter, type: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MoviesDemoTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anisrehman/Projects/MoviesDemo/MoviesDemo/Common/APIClient/APIClient.swift"
                   startingColumnNumber = "9223372036854775807"

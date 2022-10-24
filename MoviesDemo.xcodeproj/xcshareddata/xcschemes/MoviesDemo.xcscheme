@@ -49,8 +49,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "91744DD929003AF7002EEE94"
-               BuildableName = "MoviesDemoTests2.xctest"
-               BlueprintName = "MoviesDemoTests2"
+               BuildableName = "MoviesDemoTests.xctest"
+               BlueprintName = "MoviesDemoTests"
                ReferencedContainer = "container:MoviesDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
