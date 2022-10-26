@@ -20,7 +20,6 @@ class MoviesRouter: MoviesRoutable {
         let presenter = MoviesPresenter(interface: viewController, interactor: interactor, router: router)
 
         viewController.presenter = presenter
-        interactor.presenter = presenter
         router.viewController = viewController
     }
     
@@ -28,6 +27,5 @@ class MoviesRouter: MoviesRoutable {
         let movieDetailsViewController = MovieDetailsRouter.createModule(with: movie)
         movieDetailsViewController.title = title
         viewController?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
-
     }
 }

@@ -13,8 +13,8 @@ import UIKit
 protocol MovieStoring {
     func resetMovies (_ movies: [Movie], category: Category)
     func addMovie(_ movie: Movie, in category: Category)
-    func allMovies(category: Category) -> [MovieEntity]
-    func searchMovies(text: String, category: Category) -> [MovieEntity]
+    func allMovies(category: Category) -> [Movie]
+    func searchMovies(text: String, category: Category) -> [Movie]
     func deleteAllMovies(category: Category)
 }
 
@@ -64,12 +64,14 @@ class MovieRepository: MovieStoring {
     }
     
     // Load all movies from db
-    func allMovies(category: Category) -> [MovieEntity] {
+    func allMovies(category: Category) -> [Movie] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: CoreDataEntity.movieEntity.rawValue)
         fetchRequest.predicate = NSPredicate(format: "category == %d", category.rawValue)
         do {
             let allMovies = try context.fetch(fetchRequest) as! [MovieEntity]
-            return allMovies
+            return allMovies.map { movieEntity in
+                Movie(id: movieEntity.id, popularity: movieEntity.popularity, voteCount: movieEntity.voteCount, video: movieEntity.video, posterPath: movieEntity.posterPath, adult: movieEntity.adult, backdropPath: movieEntity.backdropPath, originalLanguage: movieEntity.originalLanguage ?? "", originalTitle: movieEntity.originalTitle ?? "", title: movieEntity.title ?? "", voteAverage: movieEntity.voteAverage, overview: movieEntity.overview ?? "", releaseDate: movieEntity.releaseDate ?? "")
+            }
         } catch let error as NSError {
             debugPrint("Could not fetch. \(error), \(error.userInfo)")
             return []
@@ -77,12 +79,14 @@ class MovieRepository: MovieStoring {
     }
     
     //Query the specific movies from db that contains the string in title
-    func searchMovies(text: String, category: Category) -> [MovieEntity] {
+    func searchMovies(text: String, category: Category) -> [Movie] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: CoreDataEntity.movieEntity.rawValue)
         fetchRequest.predicate = NSPredicate(format: "title contains[cd] %@ AND category == %d", text, category.rawValue)
         do {
             let allMovies = try context.fetch(fetchRequest) as! [MovieEntity]
-            return allMovies
+            return allMovies.map { movieEntity in
+                Movie(id: movieEntity.id, popularity: movieEntity.popularity, voteCount: movieEntity.voteCount, video: movieEntity.video, posterPath: movieEntity.posterPath, adult: movieEntity.adult, backdropPath: movieEntity.backdropPath, originalLanguage: movieEntity.originalLanguage ?? "" , originalTitle: movieEntity.originalTitle ?? "" , title: movieEntity.title ?? "" , voteAverage: movieEntity.voteAverage, overview: movieEntity.overview ?? "" , releaseDate: movieEntity.releaseDate ?? "" )
+            }
         } catch let error as NSError {
             debugPrint("Could not fetch. \(error), \(error.userInfo)")
             return []

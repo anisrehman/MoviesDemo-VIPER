@@ -24,22 +24,14 @@ protocol MoviesPresentable: AnyObject {
     func showMovieDetails(movie: Movie)
 }
 
-//MARK: Interactor -
-protocol MoviesOutputInteractable: AnyObject {
-
-    /* Interactor -> Presenter */
-    func showMovies(_ movies: [Movie])
-    func showError(_ error: Error)
-}
-
 protocol MoviesInteractable: AnyObject {
 
-    var presenter: MoviesOutputInteractable?  { get set }
+//    var presenter: MoviesOutputInteractable?  { get set }
     var moviesService: MoviesService { get set }
     /* Presenter -> Interactor */
-    func fetchMovies(_ category: Category)
-    func searchMovies(text: String, category: Category)
-    func clearSearch(category: Category)
+    func fetchMovies(_ category: Category, completion: @escaping ([Movie]?, Error?) -> Void)
+    func searchMovies(text: String, category: Category, completion: ([Movie]) -> Void)
+    func clearSearch(category: Category, completion: ([Movie]) -> Void)
 }
 
 //MARK: View -

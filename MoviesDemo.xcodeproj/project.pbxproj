@@ -55,6 +55,7 @@
 		918C90B623F5A4B800EADB2E /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C90B023F5A4B800EADB2E /* MovieDetailsViewController.swift */; };
 		918C90B723F5A4B800EADB2E /* MovieDetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C90B123F5A4B800EADB2E /* MovieDetailsProtocols.swift */; };
 		918C90B823F5A4B800EADB2E /* MovieDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C90B223F5A4B800EADB2E /* MovieDetailsInteractor.swift */; };
+		91A0B73929080E60004AD4EF /* MoviesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0B73829080E60004AD4EF /* MoviesInteractorTests.swift */; };
 		91A7E4B728EF17720041009E /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A7E4B628EF17720041009E /* MoviesService.swift */; };
 		91C5A70528F2D893005D277F /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C5A70428F2D893005D277F /* DependencyContainer.swift */; };
 /* End PBXBuildFile section */
@@ -107,6 +108,7 @@
 		918C90B023F5A4B800EADB2E /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		918C90B123F5A4B800EADB2E /* MovieDetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsProtocols.swift; sourceTree = "<group>"; };
 		918C90B223F5A4B800EADB2E /* MovieDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsInteractor.swift; sourceTree = "<group>"; };
+		91A0B73829080E60004AD4EF /* MoviesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInteractorTests.swift; sourceTree = "<group>"; };
 		91A7E4B628EF17720041009E /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		91C5A70428F2D893005D277F /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +214,7 @@
 			children = (
 				91237AB92906CB4200527A1D /* Info.plist */,
 				91744DDC29003AF7002EEE94 /* MoviesServiceTests.swift */,
+				91A0B73829080E60004AD4EF /* MoviesInteractorTests.swift */,
 			);
 			path = MoviesDemoTests;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				91237ABD2906CEEF00527A1D /* MoviesDemo.xcdatamodeld in Sources */,
 				91744DE92900593A002EEE94 /* MoviesResponse.swift in Sources */,
 				91744DE5290058D3002EEE94 /* Movie.swift in Sources */,
+				91A0B73929080E60004AD4EF /* MoviesInteractorTests.swift in Sources */,
 				91744DE6290058EC002EEE94 /* Category.swift in Sources */,
 				91237ABE2906CF0F00527A1D /* DatabaseManager.swift in Sources */,
 				91237ABF2906CF2400527A1D /* CoreDataEntity.swift in Sources */,

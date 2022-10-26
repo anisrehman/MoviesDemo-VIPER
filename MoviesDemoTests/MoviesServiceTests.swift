@@ -66,8 +66,6 @@ final class MoviesServiceTests: XCTestCase {
         }
     }
 
-    func testSearchMovies() throws {
-    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
