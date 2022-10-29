@@ -9,27 +9,44 @@
 import XCTest
 
 final class MoviesInteractorTests: XCTestCase {
-    let interactor = MoviesInteractor()
-
-    override func setUpWithError() throws {
+    var interactor: MoviesInteractor!
+    override func setUp() async throws {
+        DependencyContainer.shared.register(type: MovieStoring.self, value: MockMoviesRepository(), overwrite: true)
+        interactor = MoviesInteractor()
     }
 
-    override func tearDownWithError() throws {
-    }
-
-    func testFetchMovies() throws {
+    func testFetchMoviesSearchAndClearSearch() throws {
+        //Fetch Movies
         let expectation = self.expectation(description: "Movies Fetched")
-
         var result: [Movie]?
         interactor.fetchMovies(.topRated) { movies, error in
             result = movies
             expectation.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)
-        XCTAssertNotNil(result)
-        if let result {
-            XCTAssertGreaterThan(result.count, 0)
+        let allMovies =  try XCTUnwrap(result)
+        XCTAssertGreaterThan(allMovies.count, 0, "No movie found")
+
+        //Search
+        var searchResult: [Movie]?
+        let searchExpectation = self.expectation(description: "Movies Search")
+        interactor.searchMovies(text: "Godfather", category: .topRated) { movies in
+            searchResult = movies
+            searchExpectation.fulfill()
         }
+        waitForExpectations(timeout: 5, handler: nil)
+
+        let searchMovies =  try XCTUnwrap(searchResult)
+        XCTAssertGreaterThan(searchMovies.count, 0, "No movie searched")
+
+        //Clear search
+        var clearSearchResult: [Movie]?
+        interactor.clearSearch(category: .topRated) { movies in
+            clearSearchResult = movies
+        }
+        let clearSearchMovies =  try XCTUnwrap(clearSearchResult)
+        XCTAssertEqual(allMovies.count, clearSearchMovies.count)
+
     }
 
     func testPerformanceExample() throws {
