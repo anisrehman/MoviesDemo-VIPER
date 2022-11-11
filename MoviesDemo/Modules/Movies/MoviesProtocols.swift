@@ -11,7 +11,7 @@ import Foundation
 
 //MARK: Wireframe -
 protocol MoviesRoutable: AnyObject {
-    func routeToMovieDetails(movie: Movie, title: String)
+    func routeToMovieDetails(movie: Movie)
 }
 //MARK: Presenter -
 protocol MoviesPresentable: AnyObject {

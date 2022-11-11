@@ -23,9 +23,9 @@ class MoviesRouter: MoviesRoutable {
         router.viewController = viewController
     }
     
-    func routeToMovieDetails(movie: Movie, title: String) {
+    func routeToMovieDetails(movie: Movie) {
         let movieDetailsViewController = MovieDetailsRouter.createModule(with: movie)
-        movieDetailsViewController.title = title
+        movieDetailsViewController.title = "Movie Details"
         viewController?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
     }
 }
