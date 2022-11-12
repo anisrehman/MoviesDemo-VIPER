@@ -14,7 +14,6 @@ class MoviesRouter: MoviesRoutable {
     weak var viewController: UIViewController?
 
     static func createModule(viewController: MoviesViewController) {
-        // Change to get view from storyboard if not using progammatic UI
         let interactor = MoviesInteractor()
         let router = MoviesRouter()
         let presenter = MoviesPresenter(interface: viewController, interactor: interactor, router: router)

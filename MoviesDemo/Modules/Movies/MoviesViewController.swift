@@ -18,7 +18,7 @@ class MoviesViewController: UIViewController {
 	var presenter: MoviesPresentable?
 	override func viewDidLoad() {
         super.viewDidLoad()
-        MoviesRouter.createModule(viewController: self)
+//        MoviesRouter.createModule(viewController: self)
         self.fetchMovies(category: self.selectedCategory)
     }
 }
