@@ -54,6 +54,6 @@ class MoviesPresenter: MoviesPresentable {
     
     //Show movie details screen
     func showMovieDetails(movie: Movie) {
-        router.routeToMovieDetails(movie: movie, title: "Movie Details")
+        router.routeToMovieDetails(movie: movie)
     }
 }
