@@ -8,9 +8,11 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: Wireframe -
 protocol MoviesRoutable: AnyObject {
+    var navigationController: UINavigationController? { get set }
     func routeToMovieDetails(movie: Movie)
 }
 //MARK: Presenter -

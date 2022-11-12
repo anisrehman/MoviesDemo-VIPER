@@ -11,20 +11,11 @@ import UIKit
 
 class MoviesRouter: MoviesRoutable {
     
-    weak var viewController: UIViewController?
-
-    static func createModule(viewController: MoviesViewController) {
-        let interactor = MoviesInteractor()
-        let router = MoviesRouter()
-        let presenter = MoviesPresenter(interface: viewController, interactor: interactor, router: router)
-
-        viewController.presenter = presenter
-        router.viewController = viewController
-    }
+    var navigationController: UINavigationController?
     
     func routeToMovieDetails(movie: Movie) {
         let movieDetailsViewController = MovieDetailsRouter.createModule(with: movie)
         movieDetailsViewController.title = "Movie Details"
-        viewController?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
+        navigationController?.pushViewController(movieDetailsViewController, animated: true)
     }
 }

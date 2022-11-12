@@ -19,10 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         guard let navigationViewController = self.window?.rootViewController as? UINavigationController else {
-                    fatalError("Root should be instance of UINavigationController")
-                }
+            fatalError("Root should be instance of UINavigationController")
+        }
         let mainRouter = MainRouter(navigationController: navigationViewController)
-        mainRouter.setupRouter()
+        mainRouter.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

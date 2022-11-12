@@ -18,7 +18,6 @@ class MoviesViewController: UIViewController {
 	var presenter: MoviesPresentable?
 	override func viewDidLoad() {
         super.viewDidLoad()
-//        MoviesRouter.createModule(viewController: self)
         self.fetchMovies(category: self.selectedCategory)
     }
 }
@@ -75,7 +74,7 @@ extension MoviesViewController: UISearchBarDelegate {
     }
 }
 
-// MARK: - MoviesViewProtocol
+// MARK: - MoviesViewable
 extension MoviesViewController: MoviesViewable {
     func showProgress() {
         self.view.isUserInteractionEnabled = false
