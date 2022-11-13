@@ -17,7 +17,13 @@ It fetches the movies in different categories.
 It saves the movies in local database and loads from database when requested.
 
 ## Test Cases
-It includes some test cases testing different app features
+It includes some test cases testing different app features.
+
+### MoviesServiceTests
+It includes tests for MoviesService class.
+
+### MoviesInteractorTests
+It tests MoviesInteractor load and search movies.
 
 ## Demo App Features 
 Here are the key featues of the app.
