@@ -7,13 +7,13 @@ It follows VIPER architecture with SOLID design principals.
 ###APIRouter
 It routes to different API calls.
 
-###APIClient
+### APIClient
 It calls the API and parses the response.
 
-###MoviesService
+### MoviesService
 It fetches the movies in different categories.
 
-###MovieRepository
+### MovieRepository
 It saves the movies in local database and loads from database when requested.
 
 ## Test Cases
